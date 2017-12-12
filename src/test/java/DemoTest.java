@@ -20,7 +20,7 @@ public class DemoTest {
         commands.add("start");
         commands.add("cmd.exe");
         commands.add("/K");
-        commands.add("C:\\Jenkins_Deploy\\Test1_hello.exe");
+        commands.add("C:\\Jenkins_Deploy\\Test1_hello.au3");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(1000);
