@@ -1,0 +1,31 @@
+#include <Constants.au3>
+#include <GDIPlus.au3>
+#include <GUIConstantsEx.au3>
+#include <ScreenCapture.au3>
+#include <WinAPI.au3>
+#include <WindowsConstants.au3>
+#include <File.au3>
+
+Run("C:\Jenkins_Deploy\Test1.exe")
+Sleep(100)
+WinActivate("Greetings")
+Sleep(1000)
+MouseClick($MOUSE_CLICK_LEFT, 16, 185, 2)
+sleep(100)
+MouseClick($MOUSE_CLICK_LEFT, 557, 267, 2)
+sleep(100)
+Local $sMsgBoxText = WinGetText("Hi", "Hello.")
+Local $sResults	 = @ScriptDir & "\Results.txt"
+Local $sGood = @ScriptDir & "\GOOD.txt"
+
+$hFile = FileOpen($sResults,2)
+FileWrite($sResults,$sMsgBoxText)
+FileClose($hFile)
+
+$RET = RunWait(@ComSpec & ' /c FC /B ' & $sResults & " " & $sGood, @TempDir, @SW_HIDE)
+If Not $RET Then
+    MsgBox(64, "Match", "File comapre matched")
+Else
+    MsgBox(16, "Error", "File compare did not match")
+EndIf
+MouseClick($MOUSE_CLICK_LEFT, 976, 589, 2)
