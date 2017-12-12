@@ -9,9 +9,9 @@ import java.io.IOException;
 public class DemoTest {
     @Test
     public void test1() {
-        String expected = "C:\\Jenkins_Deploy\\Automation_Demo\\Good.txt\\";
-        String results = "C:\\Jenkins_Deploy\\Automation_Demo\\TestResults.txt\\";
-        String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Automation_Demo\\Test1_hello.exe";
+        String expected = "C:\\Jenkins_Deploy\\GOOD.txt\\";
+        String results = "C:\\Jenkins_Deploy\\Results.txt\\";
+        String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.exe";
         runCmdCommand(cmdrun);
         wait(2000);
         boolean flag=false;
