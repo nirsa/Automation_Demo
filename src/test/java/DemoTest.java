@@ -4,41 +4,53 @@ import org.testng.annotations.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.ProcessBuilder;
 
 public class DemoTest {
     @Test
-    public void test1() {
-        String expected = "C:\\Jenkins_Deploy\\GOOD.txt\\";
-        String results = "C:\\Jenkins_Deploy\\Results.txt\\";
-        String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.exe";
-        runCmdCommand(cmdrun);
+    public void test1() throws IOException {
+        String expected = "C:\\Jenkins_Deploy\\GOOD.txt";
+        String results = "C:\\Jenkins_Deploy\\Results.txt";
+        //String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.exe";
+        final List<String> commands = new ArrayList<String>();
+
+        commands.add("cmd.exe");
+        commands.add("/C");
+        commands.add("start");
+        commands.add("cmd.exe");
+        commands.add("/K");
+        commands.add("C:\\Jenkins_Deploy\\Test1_hello.exe");
+        ProcessBuilder pb = new ProcessBuilder(commands);
+        pb.start();
         wait(2000);
         boolean flag=false;
         try {
           flag =  compareFiles(expected,results);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         Assert.assertTrue(flag);
 
     }
 
-    public void runCmdCommand(String command){
-        try {
-            Runtime.getRuntime().exec(command);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                wait(1000);
-                Runtime.getRuntime().exec("taskkill /f /im cmd.exe") ;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    public void runCmdCommand(String command){
+//        try {
+//            Runtime.getRuntime().exec(command);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        finally {
+//            try {
+//                wait(2000);
+//                Runtime.getRuntime().exec("taskkill /f /im cmd.exe") ;
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
     private void wait(int miliSeconds){
         try {
             Thread.sleep(miliSeconds);
