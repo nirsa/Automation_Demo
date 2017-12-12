@@ -2,17 +2,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.ProcessBuilder;
 
 public class DemoTest {
     @Test
     public void test1() throws IOException {
-        String expected = "C:\\Jenkins_Deploy\\GOOD.txt";
-        String results = "C:\\Jenkins_Deploy\\Results.txt";
+
         //String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.exe";
         final List<String> commands = new ArrayList<String>();
 
@@ -24,10 +23,14 @@ public class DemoTest {
         commands.add("C:\\Jenkins_Deploy\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
-        wait(2000);
+        wait(5000);
         boolean flag=false;
+        String expected = "C:\\Jenkins_Deploy\\GOOD.txt";
+        String presults = "C:\\Jenkins_Deploy\\Results.txt";
+        File results = new File(presults);
+        results.createNewFile();
         try {
-          flag =  compareFiles(expected,results);
+          flag =  compareFiles(expected,presults);
         }
         catch (IOException e) {
             e.printStackTrace();
