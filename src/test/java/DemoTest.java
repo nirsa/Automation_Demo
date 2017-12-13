@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DemoTest {
+
+
     @Test
     public void test1() throws IOException {
 
@@ -20,10 +22,10 @@ public class DemoTest {
         commands.add("start");
         commands.add("cmd.exe");
         commands.add("/K");
-        commands.add("C:\\Jenkins_Deploy\\Test1_hello.au3");
+        commands.add("C:\\Jenkins_Deploy\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
-        wait(1000);
+        wait(2000);
         System.out.println( "I am running Autoit" );
         boolean flag=false;
         String expected = "C:\\Jenkins_Deploy\\GOOD.txt";
