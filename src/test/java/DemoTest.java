@@ -22,14 +22,14 @@ public class DemoTest {
         commands.add("start");
         commands.add("cmd.exe");
         commands.add("/K");
-        commands.add("C:\\Jenkins_Deploy\\Test1_hello.exe");
+        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(2000);
         System.out.println( "I am running Autoit" );
         boolean flag=false;
-        String expected = "C:\\Jenkins_Deploy\\GOOD.txt";
-        String presults = "C:\\Jenkins_Deploy\\Results.txt";
+        String expected = "C:\\Jenkins\\workspace\\GreetingApp\\GOOD.txt";
+        String presults = "C:\\Jenkins\\workspace\\GreetingApp\\Results.txt";
         File results = new File(presults);
         results.createNewFile();
         try {
