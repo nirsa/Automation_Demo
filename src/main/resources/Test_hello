@@ -6,7 +6,7 @@
 #include <WindowsConstants.au3>
 #include <File.au3>
 
-Run("C:\Jenkins_Deploy\Test1.exe")
+Run("C:\Jenkins\workspace\GreetingApp\Test1\bin\Release\Test1.exe")
 Sleep(100)
 WinActivate("Greetings")
 Sleep(1000)
@@ -24,8 +24,9 @@ FileClose($hFile)
 
 $RET = RunWait(@ComSpec & ' /c FC /B ' & $sResults & " " & $sGood, @TempDir, @SW_HIDE)
 If Not $RET Then
-    MsgBox(64, "Match", "File comapre matched")
+    MsgBox(64, "Match", "File comapre matched",1)
 Else
-    MsgBox(16, "Error", "File compare did not match")
+    MsgBox(16, "Error", "File compare did not match",1)
 EndIf
 MouseClick($MOUSE_CLICK_LEFT, 976, 589, 2)
+WinClose ( "Greetings")
