@@ -21,7 +21,7 @@ public class TestSeleniumTest {
         chromeDriver.findElement( By.id("user_email")).sendKeys("yossi.ambalo@odysii.com");
         chromeDriver.findElement(By.id("user_password")).sendKeys("Jt1Z1xwS");
         chromeDriver.findElement(By.name("commit")).click();
-        chromeDriver.findElement(By.linkText("Manual Promotions")).click();
+        System.out.println("Printing " + chromeDriver.findElement(By.linkText("Manual Promotions")).getText() );
         String str = "TestNG is working fine";
         assertEquals("TestNG is working fine", str);
     }
