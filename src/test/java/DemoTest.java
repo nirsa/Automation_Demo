@@ -2,7 +2,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,11 +28,10 @@ public class DemoTest {
         System.out.println( "I am running Autoit" );
         boolean flag=false;
         String expected = "C:\\Jenkins\\workspace\\GreetingApp\\GOOD.txt";
-        String presults = "C:\\Jenkins\\workspace\\GreetingApp\\Results.txt";
-        File results = new File(presults);
-        results.createNewFile();
+        String results = "C:\\Jenkins\\workspace\\GreetingApp\\Results.txt";
+
         try {
-          flag =  compareFiles(expected,presults);
+          flag =  compareFiles(expected,results);
         }
         catch (IOException e) {
             e.printStackTrace();
