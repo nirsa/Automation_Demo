@@ -31,7 +31,7 @@ public class DemoTest {
         java.io.File needed = new java.io.File("C:\\Jenkins\\workspace\\GreetingApp\\Results.txt");
         while( !needed.exists() ) {
             try {
-                Thread.sleep( 2000 );
+                Thread.sleep( 10000 );
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
