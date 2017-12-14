@@ -23,7 +23,7 @@ public class DemoTest {
         commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
-        wait(2000);
+        wait(5000);
         System.out.println( "I am running Autoit" );
         boolean flag=false;
         String expected = "C:\\Jenkins\\workspace\\GreetingApp\\GOOD.txt";
