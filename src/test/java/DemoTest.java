@@ -28,7 +28,14 @@ public class DemoTest {
         boolean flag=false;
         String expected = "C:\\Jenkins\\workspace\\GreetingApp\\GOOD.txt";
         String results = "C:\\Jenkins\\workspace\\GreetingApp\\Results.txt";
-
+        java.io.File needed = new java.io.File("C:\\Jenkins\\workspace\\GreetingApp\\Results.txt");
+        while( !needed.exists() ) {
+            try {
+                Thread.sleep( 2000 );
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         try {
           flag =  compareFiles(expected,results);
         }
