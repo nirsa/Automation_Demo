@@ -25,7 +25,7 @@ public class DemoTest {
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(5000);
-        System.out.println( "I am running Autoit" );
+        System.out.println( "Hi Eli!" );
         boolean flag=false;
         String expected = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\GOOD.txt";
         String results = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Results.txt";
