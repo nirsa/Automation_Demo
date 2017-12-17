@@ -12,7 +12,7 @@ public class DemoTest {
     @Test
     public void test1() throws IOException {
 
-        //String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.exe";
+        //String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.py";
         final List<String> commands = new ArrayList<String>();
 
         commands.add("cmd.exe");
@@ -20,7 +20,8 @@ public class DemoTest {
         commands.add("start");
         commands.add("cmd.exe");
         commands.add("/K");
-        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
+        //commands.add( "python" );
+        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.py");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(5000);
@@ -46,21 +47,7 @@ public class DemoTest {
 
     }
 
-//    public void runCmdCommand(String command){
-//        try {
-//            Runtime.getRuntime().exec(command);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            try {
-//                wait(2000);
-//                Runtime.getRuntime().exec("taskkill /f /im cmd.exe") ;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+
     private void wait(int miliSeconds){
         try {
             Thread.sleep(miliSeconds);
