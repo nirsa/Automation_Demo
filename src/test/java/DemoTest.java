@@ -47,7 +47,43 @@ public class DemoTest {
 
     }
 
+@Test
+public void test2() throws IOException {
 
+
+    final List<String> commands = new ArrayList<String>();
+
+    commands.add("cmd.exe");
+    commands.add("/C");
+    commands.add("start");
+    commands.add("cmd.exe");
+    commands.add("/K");
+    //commands.add( "python" );
+    commands.add("C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Test2_goodby.exe");
+    ProcessBuilder pb = new ProcessBuilder(commands);
+    pb.start();
+    wait(5000);
+    System.out.println( "I am running Autoit" );
+    boolean flag=false;
+    String expected = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\GOOD2.txt";
+    String results = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Results2.txt";
+    java.io.File needed = new java.io.File("C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Results2.txt");
+    while( !needed.exists() ) {
+        try {
+            Thread.sleep( 10000 );
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    try {
+        flag =  compareFiles(expected,results);
+    }
+    catch (IOException e) {
+        e.printStackTrace();
+    }
+    Assert.assertTrue(flag);
+
+}
     private void wait(int miliSeconds){
         try {
             Thread.sleep(miliSeconds);
