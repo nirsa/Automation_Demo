@@ -21,7 +21,7 @@ public class DemoTest {
         commands.add("cmd.exe");
         commands.add("/K");
         //commands.add( "python" );
-        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.py");
+        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(5000);
