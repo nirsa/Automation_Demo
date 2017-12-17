@@ -21,15 +21,15 @@ public class DemoTest {
         commands.add("cmd.exe");
         commands.add("/K");
         //commands.add( "python" );
-        commands.add("C:\\Jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
+        commands.add("C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Test1_hello.exe");
         ProcessBuilder pb = new ProcessBuilder(commands);
         pb.start();
         wait(5000);
         System.out.println( "I am running Autoit" );
         boolean flag=false;
-        String expected = "C:\\Jenkins\\workspace\\GreetingApp\\GOOD.txt";
-        String results = "C:\\Jenkins\\workspace\\GreetingApp\\Results.txt";
-        java.io.File needed = new java.io.File("C:\\Jenkins\\workspace\\GreetingApp\\Results.txt");
+        String expected = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\GOOD.txt";
+        String results = "C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Results.txt";
+        java.io.File needed = new java.io.File("C:\\Users\\nir.sarusy\\.jenkins\\workspace\\GreetingApp\\Results.txt");
         while( !needed.exists() ) {
             try {
                 Thread.sleep( 10000 );
