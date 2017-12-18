@@ -12,7 +12,7 @@ public class DemoTest {
     @Test
     public void test1() throws IOException {
 
-        //String cmdrun = "cmd /c start cmd.exe /K \"C:\\Jenkins_Deploy\\Test1_hello.py";
+
         final List<String> commands = new ArrayList<String>();
 
         commands.add("cmd.exe");
